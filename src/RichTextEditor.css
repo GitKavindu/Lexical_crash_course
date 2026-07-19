@@ -1,0 +1,50 @@
+.contentEditable {
+  position: relative;
+  height: 120px;
+  font-size: 12px;
+  padding: 8px;
+  overflow: auto;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.placeholder{
+    position: absolute;
+    color: #999;
+    top: 20px;
+    left: 10px;
+    font-size: 12px;
+}
+
+.buttonGroup > button{
+    border-radius: 0;
+    align-items: center;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-stikethrough {
+    text-decoration: line-through;
+}
+
+.text-both {
+    text-decoration: underline line-through;
+}
+
+.text-italic{
+    font-style: italic;
+}
+
+.text-code{
+    color: black;
+    padding: 2px;
+    background: #eee;
+    border: 1px solid #ccc;
+}
