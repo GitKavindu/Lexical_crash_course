@@ -21,7 +21,7 @@ export default function ImagePlugin() {
     if (file) src = URL.createObjectURL(file); 
 
     editor.update(() => {
-      const node = $createImageNode({ src, altText: "Dummy text" });
+      const node = $createImageNode({ src, altText: "Dummy text" , width:150 ,height:150});
       $insertNodes([node]);
     });
     setFile(undefined);
