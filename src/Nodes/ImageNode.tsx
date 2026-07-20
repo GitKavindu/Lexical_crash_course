@@ -4,6 +4,7 @@ import {
   DOMConversionOutput,
   DOMExportOutput,
   NodeKey,
+  SerializedLexicalNode,
 } from "lexical";
 import { JSX } from "react/jsx-runtime";
 
@@ -111,21 +112,35 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     };
   }
 
-  exportJSON(): SerializedImageNode {
+    exportJSON(): SerializedImageNode {
     return {
-      type: "image",
-      version: 1,
-      src: this.__src,
+        type: "image",
+        version: 1,
+        src: this.__src,
+        altText: this.__altText,
+        width: this.__width,
+        height: this.__height,
+        maxWidth: this.__maxWidth,
     };
-  }
+    }
 
-  static importJSON(serializedNode: SerializedImageNode): ImageNode {
-    return new ImageNode(serializedNode.src);
-  }
+    static importJSON(serializedNode: SerializedImageNode): ImageNode {
+        return new ImageNode(
+            serializedNode.src,
+            serializedNode.altText,
+            serializedNode.width,
+            serializedNode.height,
+            serializedNode.maxWidth
+        );
+    }
 }
 
-type SerializedImageNode = {
+type SerializedImageNode = SerializedLexicalNode & {
   type: "image";
   version: 1;
   src: string;
+  altText: string;
+  width: "inherit" | number ; 
+  height: "inherit" | number;
+  maxWidth: number;
 };
