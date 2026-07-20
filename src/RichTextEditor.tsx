@@ -17,6 +17,8 @@ import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import {TableNode , TableCellNode , TableRowNode} from '@lexical/table'
 import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { theme } from "./theme";
+import { ImageNode } from "./Nodes/ImageNode";
+import ImagePlugin from "./Plugins/ImagePlugin";
 interface RichTextEditorprops{
 
 }
@@ -34,7 +36,7 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
             namespace: name,
             theme:theme,
             onError:()=>{},
-            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode]
+            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode,ImageNode]
         }),[name]);
 
         return <Box>
@@ -55,7 +57,7 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
                 <ListPlugin/>
                 <TablePlugin></TablePlugin>
                 <CustomOnChangePlugin value={value} onChange={onChange}/>
-                
+                <ImagePlugin></ImagePlugin>
             </LexicalComposer>
         </Box>
     }
