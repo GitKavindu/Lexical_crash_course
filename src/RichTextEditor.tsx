@@ -12,6 +12,8 @@ import ToolBarPlugin from "./Plugins/ToolBarPlugin";
 import { EditorThemeClasses } from "lexical";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import CustomOnChangePlugin from "./Plugins/CustomOnChanePlugin";
+import { ListNode, ListItemNode } from "@lexical/list"
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 interface RichTextEditorprops{
 
 }
@@ -26,8 +28,6 @@ const theme:EditorThemeClasses={
     }
 };
 
-
-
 interface RichTextEditorProps {
     value : string;
     onChange: (value:string) => void ;
@@ -41,7 +41,7 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
             namespace: name,
             theme,
             onError:()=>{},
-            nodes:[HeadingNode,CodeHighlightNode,CodeNode]
+            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode]
         }),[name]);
 
         return <Box>
@@ -59,7 +59,9 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
                 </Box>
                 <AutoFocusPlugin/>
                 <HistoryPlugin/>
+                <ListPlugin/>
                 <CustomOnChangePlugin value={value} onChange={onChange}/>
+                
             </LexicalComposer>
         </Box>
     }

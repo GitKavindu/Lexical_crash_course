@@ -4,11 +4,13 @@ import { Divider } from "../Components/Divider";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getSelection, $isRangeSelection, CAN_REDO_COMMAND, CAN_UNDO_COMMAND, FORMAT_ELEMENT_COMMAND, FORMAT_TEXT_COMMAND, REDO_COMMAND, UNDO_COMMAND } from "lexical";
 import { useEffect, useState } from "react";
-import {mergeRegister} from '@lexical/utils'
+import {mergeRegister , $getNearestNodeOfType} from '@lexical/utils'
 import {$createHeadingNode, HeadingTagType} from '@lexical/rich-text'
 import {$wrapNodes} from '@lexical/selection'
 import { useKeyBindings } from "../hooks/UseKeyBindings";
 import ColorPlugin from "./ColorPlugin";
+import { ListPlugin } from "./ListPlugin";
+import {$isListNode, ListNode} from '@lexical/list'
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -19,6 +21,7 @@ export default function ToolBarPlugin(){
 
     const [headingValue,setHeadingValue] = useState<string>('')
     const [selectioneMap,setSelectioneMapp] = useState<{[id:string]:boolean }>({})
+    const [blockType, setBlockType] =useState('paragraph')
 
     const updateToolbar= ()=>{
         const selection = $getSelection()
@@ -36,6 +39,22 @@ export default function ToolBarPlugin(){
             }
 
             setSelectioneMapp(newSelectionMap)
+
+            const anchorNode = selection.anchor.getNode()
+            const element =anchorNode.getKey() === 'root' 
+                ? anchorNode
+                : anchorNode.getTopLevelElementOrThrow()
+            
+            const elementkey = element.getKey()
+            const elemntDOM = editor.getElementByKey(elementkey)
+
+            if(!elemntDOM) return
+
+            if($isListNode(element)){
+                const parentList = $getNearestNodeOfType(anchorNode,ListNode)
+                const type = parentList ? parentList.getTag() : element.getTag()
+                setBlockType(type)
+            }
         }
     }
     //
@@ -48,7 +67,7 @@ export default function ToolBarPlugin(){
             }),
             editor.registerCommand(
                 CAN_UNDO_COMMAND,
-                (payload) => {
+                (payload) => {ListPlugin
                     updateToolbar()
                     return false
                 },
@@ -80,6 +99,7 @@ export default function ToolBarPlugin(){
             )
         )
     },[])
+
     const onAction=(id:RichTextAction)=>{
         switch(id){
             case RichTextAction.Bold: {
@@ -212,8 +232,8 @@ export default function ToolBarPlugin(){
                     gap:1
                 }}
             >
-                <h1></h1>
                 <ColorPlugin></ColorPlugin>
+                <ListPlugin blockType={blockType}></ListPlugin>
             </Box>
         </ButtonGroup>
     </Box>

@@ -1,4 +1,4 @@
-import { Box, ClickAwayListener, colors, IconButton } from "@mui/material";
+import { Box, ClickAwayListener, IconButton } from "@mui/material";
 import { useState } from "react";
 import { SketchPicker } from "react-color";
 
@@ -8,20 +8,20 @@ interface ColorPickerProps{
     icon:React.ReactElement
 }
 export default function ColorPicker({color,onChange,icon}:ColorPickerProps){
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);    
 
     return (
-        <ClickAwayListener onClickAway={() => setIsOpen(false)}>
+         <ClickAwayListener onClickAway={() => setIsOpen(false)}>
             <Box position="relative">
                 <IconButton
-                aria-label="Change Color"
-                onClick={() => setIsOpen((prev) => !prev)}
-                sx={{
-                    color: "#333",
-                }}
-                size="small"
-                >
-                {icon}
+                    aria-label="Change Color"
+                    onClick={() => setIsOpen(true)}
+                    sx={{
+                        color: "#000000",
+                    }}
+                    size="small"
+                    >
+                    {icon}
                 </IconButton>
 
                 {isOpen && (
@@ -34,15 +34,14 @@ export default function ColorPicker({color,onChange,icon}:ColorPickerProps){
                     }}
                 >
                     <SketchPicker
-                    color={color}
-                    onChangeComplete={(color) => {
-                        onChange(color.hex);
-                    }}
+                        color={color}
+                        onChangeComplete={(color) => {
+                            onChange(color.hex);
+                        }}
                     />
                 </Box>
                 )}
             </Box>
         </ClickAwayListener>
-        
     );
 }
