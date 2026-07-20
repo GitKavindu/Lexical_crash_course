@@ -14,7 +14,7 @@ export function ListPlugin({ blockType }:ListPluginProps){
     return <>
         <IconButton
             aria-label="Add Ordered list"
-            {...getSelectedBtnProps(blockType === "ul")}
+            {...getSelectedBtnProps(blockType === "ol")}
             size="small"
             onClick={()=>{
                 if(blockType === 'ol'){
@@ -25,7 +25,6 @@ export function ListPlugin({ blockType }:ListPluginProps){
                     blockType='ol'
                 }
             }}
-            {...getSelectedBtnProps(blockType === 'ol')}
         >
             {<ListOl></ListOl>}
         </IconButton>

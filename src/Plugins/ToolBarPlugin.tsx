@@ -11,6 +11,7 @@ import { useKeyBindings } from "../hooks/UseKeyBindings";
 import ColorPlugin from "./ColorPlugin";
 import { ListPlugin } from "./ListPlugin";
 import {$isListNode, ListNode} from '@lexical/list'
+import {TabelPlugin} from "./TablePlugin";
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -234,6 +235,7 @@ export default function ToolBarPlugin(){
             >
                 <ColorPlugin></ColorPlugin>
                 <ListPlugin blockType={blockType}></ListPlugin>
+                <TabelPlugin></TabelPlugin>
             </Box>
         </ButtonGroup>
     </Box>
