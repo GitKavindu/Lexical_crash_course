@@ -8,6 +8,7 @@ import {mergeRegister} from '@lexical/utils'
 import {$createHeadingNode, HeadingTagType} from '@lexical/rich-text'
 import {$wrapNodes} from '@lexical/selection'
 import { useKeyBindings } from "../hooks/UseKeyBindings";
+import ColorPlugin from "./ColorPlugin";
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -187,6 +188,7 @@ export default function ToolBarPlugin(){
                     </option>
                 ))}
             </select>
+            
             {RICH_TEXT_OPTIONS.map(({id,label,icon,fontsize})=>(
                 id === RichTextAction.Divider ? <Divider/> :
                 <IconButton 
@@ -202,6 +204,17 @@ export default function ToolBarPlugin(){
                     {icon}
                 </IconButton>
             ))}
+
+            <Box 
+                display="flex"
+                 sx={{
+                    mt: 1,
+                    gap:1
+                }}
+            >
+                <h1></h1>
+                <ColorPlugin></ColorPlugin>
+            </Box>
         </ButtonGroup>
     </Box>
 }

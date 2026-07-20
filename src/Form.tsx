@@ -19,7 +19,7 @@ export default function Form() {
     
     useEffect(()=>{
         setTimeout(() => {
-            setValue(data)
+            //setValue(data)
             console.log("data came  ",data);
         }, 2000);
     },[data])
