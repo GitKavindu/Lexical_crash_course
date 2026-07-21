@@ -101,3 +101,24 @@ export const RICH_TEXT_OPTIONS = [
 
 export const LOW_PRIORIRTY = 1;
 export const HEADINGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+export const eventTypes = {
+  paragraph: "paragraph",
+  h1: "h1",
+  h2: "h2",
+  ul: "ul",
+  ol: "ol",
+  quote: "quote",
+  formatCode: "formatCode",
+  formatUndo: "formatUndo",
+  formatRedo: "formatRedo",
+  formatBold: "formatBold",
+  formatItalic: "formatItalic",
+  formatUnderline: "formatUnderline",
+  formatStrike: "formatStrike",
+  formatInsertLink: "formatInsertLink",
+  formatAlignLeft: "formatAlignLeft",
+  formatAlignCenter: "formatAlignCenter",
+  formatAlignRight: "formatAlignRight",
+  insertImage: "insertImage",
+};

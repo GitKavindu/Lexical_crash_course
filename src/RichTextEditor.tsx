@@ -1,4 +1,4 @@
-import { Box, css } from "@mui/material";
+import { Box, Button, css } from "@mui/material";
 import React, { useMemo } from "react";
 import {LexicalComposer} from "@lexical/react/LexicalComposer"
 import {HeadingNode} from "@lexical/rich-text"
@@ -19,6 +19,7 @@ import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { theme } from "./theme";
 import { ImageNode } from "./Nodes/ImageNode";
 import ImagePlugin from "./Plugins/ImagePlugin";
+import { AutoLinkNode, LinkNode } from "@lexical/link";
 interface RichTextEditorprops{
 
 }
@@ -36,7 +37,7 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
             namespace: name,
             theme:theme,
             onError:()=>{},
-            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode,ImageNode]
+            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode,ImageNode, AutoLinkNode,LinkNode,]
         }),[name]);
 
         return <Box>

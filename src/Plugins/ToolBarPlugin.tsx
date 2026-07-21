@@ -12,6 +12,9 @@ import ColorPlugin from "./ColorPlugin";
 import { ListPlugin } from "./ListPlugin";
 import {$isListNode, ListNode} from '@lexical/list'
 import {TabelPlugin} from "./TablePlugin";
+import { createPortal } from "react-dom";
+import {useOnClickListener} from "../Plugins/useOnClickListener";
+import {FloatingLinkEditor} from "../Plugins/FloatingLinkEditor";
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -23,6 +26,8 @@ export default function ToolBarPlugin(){
     const [headingValue,setHeadingValue] = useState<string>('')
     const [selectioneMap,setSelectioneMapp] = useState<{[id:string]:boolean }>({})
     const [blockType, setBlockType] =useState('paragraph')
+
+    const { onClick, selectedEventTypes, blockTypes, isLink, editorContent, modal } =  useOnClickListener();
 
     const updateToolbar= ()=>{
         const selection = $getSelection()
@@ -236,7 +241,14 @@ export default function ToolBarPlugin(){
                 <ColorPlugin></ColorPlugin>
                 <ListPlugin blockType={blockType}></ListPlugin>
                 <TabelPlugin></TabelPlugin>
+                {isLink &&
+                    createPortal(<FloatingLinkEditor editor={editorContent} />, document.body)}
             </Box>
         </ButtonGroup>
     </Box>
+}
+
+const LexicalEditorTopBar = () => {
+
+    
 }
