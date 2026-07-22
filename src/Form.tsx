@@ -1,13 +1,12 @@
 import { Box, Button } from "@mui/material";
 import { RichTextEditor } from "./RichTextEditor";
 import { useEffect, useState } from "react";
-import { useUpdateData } from "./api";
 
 
 export default function Form() {
     const [value,setValue]= useState('')
     const [isPending,setIsPending ]= useState<boolean>(false)
-    const {data} = {data: '<p><b><code spellcheck="false" style="white-space: pre-wrap;"><strong class="text-bold text-code">sdsadasd</strong></code></b></p>'}
+    const {data} = {data: '<h1><span style="white-space: pre-wrap;">Hello World</span></h1><p style="text-align: center;"><img src="https://img.magnific.com/free-photo/surreal-neon-tropical-flowers_23-2151665757.jpg?semt=ais_hybrid&amp;w=140&amp;q=100" alt="Dummy text"></p>'}
 
     const OnSave=() => {
         setIsPending(true) 
@@ -19,7 +18,7 @@ export default function Form() {
     
     useEffect(()=>{
         setTimeout(() => {
-            //setValue(data)
+            setValue(data)
             console.log("data came  ",data);
         }, 2000);
     },[data])
