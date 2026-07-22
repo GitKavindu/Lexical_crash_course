@@ -15,7 +15,10 @@ export function TabelPlugin(){
     const onAddTable = () => {
         if(!rows || !columns) return
         editor.update(()=>{
-            const tableNode = $createTableNodeWithDimensions(rows,columns,true)
+           const tableNode = $createTableNodeWithDimensions(rows, columns, {
+                rows: true,
+                columns: false,
+            });
             $insertNodeToNearestRoot(tableNode)
         })
         setRows(1)
