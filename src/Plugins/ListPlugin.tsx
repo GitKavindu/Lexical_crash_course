@@ -14,16 +14,16 @@ export function ListPlugin({ blockType }:ListPluginProps){
     return <>
         <IconButton
             aria-label="Add Ordered list"
-            {...getSelectedBtnProps(blockType === "ol")}
+            // {...getSelectedBtnProps(blockType === "ol")}
             size="small"
             onClick={()=>{
-                if(blockType === 'ol'){
-                    editor.dispatchCommand(REMOVE_LIST_COMMAND,undefined)
-                }
-                else{
+                // if(blockType === 'ol'){
+                //     editor.dispatchCommand(REMOVE_LIST_COMMAND,undefined)
+                // }
+                // else{
                     editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND,undefined)
                     blockType='ol'
-                }
+                //}
             }}
         >
             {<ListOl></ListOl>}
@@ -31,15 +31,15 @@ export function ListPlugin({ blockType }:ListPluginProps){
 
         <IconButton
             aria-label="Add Unordered list"
-            {...getSelectedBtnProps(blockType === "ul")}
+            // {...getSelectedBtnProps(blockType === "ul")}
             size="small"
             onClick={()=>{
-                if(blockType === 'ul'){
-                    editor.dispatchCommand(REMOVE_LIST_COMMAND,undefined)
-                }
-                else{
-                    editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND,undefined)
-                }
+                // if(blockType === 'ul'){
+                //     editor.dispatchCommand(REMOVE_LIST_COMMAND,undefined)
+                // }
+                // else{
+                     editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND,undefined)
+                // }
                    
             }}
             

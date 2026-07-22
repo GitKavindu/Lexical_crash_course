@@ -46,4 +46,9 @@ export const theme: EditorThemeClasses = {
     url: "editorTokenOperator",
     variable: "editorTokenVariable",
   },
+   list: {
+    ul: 'editor-list-ul',
+    ulDepth: ['editor-list-ul-1', 'editor-list-ul-2'], // per-nesting-depth if you want different icons per level
+    listitem: 'editor-list-item',
+  },
 };

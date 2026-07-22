@@ -19,6 +19,9 @@ import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { theme } from "./theme";
 import { ImageNode } from "./Nodes/ImageNode";
 import ImagePlugin from "./Plugins/ImagePlugin";
+import { LinkNode, AutoLinkNode } from "@lexical/link";
+import { CustomBulletListNode } from "./Nodes/CustomBulletListNode";
+
 interface RichTextEditorprops{
 
 }
@@ -36,7 +39,7 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
             namespace: name,
             theme:theme,
             onError:()=>{},
-            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode,ImageNode]
+            nodes:[HeadingNode,CodeHighlightNode,CodeNode, ListNode, ListItemNode ,TableNode , TableCellNode , TableRowNode,ImageNode,LinkNode, AutoLinkNode,CustomBulletListNode]
         }),[name]);
 
         return <Box>

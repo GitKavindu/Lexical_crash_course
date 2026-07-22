@@ -48,3 +48,47 @@
     background: #eee;
     border: 1px solid #ccc;
 }
+
+.editor-list-ul-custom {
+  list-style: none;
+  padding-left: 0;
+}
+
+.editor-list-ul-custom li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.editor-list-ul-custom li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 16px;
+  height: 16px;
+  background-image: url('../public/x-diamond-fill.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.editor-list-ul-star {
+  list-style: none;
+  padding-left: 0;
+}
+
+.editor-list-ul-star li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.editor-list-ul-star li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 16px;
+  height: 16px;
+  background-image: url('../public/x-diamond-fill-red.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}

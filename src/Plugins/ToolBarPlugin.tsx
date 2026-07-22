@@ -12,6 +12,8 @@ import ColorPlugin from "./ColorPlugin";
 import { ListPlugin } from "./ListPlugin";
 import {$isListNode, ListNode} from '@lexical/list'
 import {TabelPlugin} from "./TablePlugin";
+import { LinkPlugin } from "./LinkPlugin";
+import { CustomListPlugin } from "./CustomListPlugin";
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -236,6 +238,9 @@ export default function ToolBarPlugin(){
                 <ColorPlugin></ColorPlugin>
                 <ListPlugin blockType={blockType}></ListPlugin>
                 <TabelPlugin></TabelPlugin>
+                <LinkPlugin></LinkPlugin>
+                <CustomListPlugin className="editor-list-ul-star" icon={undefined} label={""} />
+                <CustomListPlugin className="editor-list-ul-custom" icon={undefined} label={""} />
             </Box>
         </ButtonGroup>
     </Box>
