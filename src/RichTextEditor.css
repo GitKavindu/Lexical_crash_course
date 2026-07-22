@@ -92,3 +92,11 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.editor-link{
+  text-decoration: none;
+}
+
+.a{
+  text-decoration: none;
+}

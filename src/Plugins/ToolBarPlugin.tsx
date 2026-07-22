@@ -14,6 +14,8 @@ import {$isListNode, ListNode} from '@lexical/list'
 import {TabelPlugin} from "./TablePlugin";
 import { LinkPlugin } from "./LinkPlugin";
 import { CustomListPlugin } from "./CustomListPlugin";
+import blacksvg from "../../public/x-diamond-fill.svg"
+import redsvg from "../../public/x-diamond-fill-red.svg"
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -239,8 +241,8 @@ export default function ToolBarPlugin(){
                 <ListPlugin blockType={blockType}></ListPlugin>
                 <TabelPlugin></TabelPlugin>
                 <LinkPlugin></LinkPlugin>
-                <CustomListPlugin className="editor-list-ul-star" icon={undefined} label={""} />
-                <CustomListPlugin className="editor-list-ul-custom" icon={undefined} label={""} />
+                <CustomListPlugin className="editor-list-ul-star" icon={<img src={redsvg} alt="Table" width={20} height={20} />} label={""} />
+                <CustomListPlugin className="editor-list-ul-custom" icon={<img src={blacksvg} alt="Table" width={20} height={20} />} label={""} />
             </Box>
         </ButtonGroup>
     </Box>

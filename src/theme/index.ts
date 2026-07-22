@@ -51,4 +51,5 @@ export const theme: EditorThemeClasses = {
     ulDepth: ['editor-list-ul-1', 'editor-list-ul-2'], // per-nesting-depth if you want different icons per level
     listitem: 'editor-list-item',
   },
+  link: "editor-link"
 };
