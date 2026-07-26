@@ -80,6 +80,7 @@ export function CustomListPlugin({ className, icon, label }: CustomListPluginPro
 
   return (
     <button
+      type='button'
       onMouseDown={(e) => e.preventDefault()}
       onClick={toggleBulletList}
       className={isActive ? 'toolbar-item active' : 'toolbar-item'}

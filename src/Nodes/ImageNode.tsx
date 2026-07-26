@@ -67,13 +67,14 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     return "image";
   }
 
-  static clone(_node: ImageNode): ImageNode {
+  static clone(node: ImageNode): ImageNode {
     return new ImageNode({
-      altText: _node.__altText,
-      src: _node.__src,
-      height: _node.__height,
-      width: _node.__width,
-      maxWidth: _node.__maxWidth,
+      altText: node.__altText,
+      src: node.__src,
+      height: node.__height,
+      width: node.__width,
+      maxWidth: node.__maxWidth,
+      key: node.__key,
     });
   }
 

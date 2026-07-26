@@ -27,6 +27,7 @@
 
 .table {
   margin-top: 4px;
+  width: 100%;
 }
 
 .tableCell {
@@ -40,7 +41,14 @@
 }
 
 .tableCellHeader {
-  background: #f2f3f5;
+  background: #83004B;;
+}
+
+.tableCellHeader p{
+  color: #eee;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: left;
 }
 
 .table{
@@ -55,8 +63,4 @@
 
 .tableCell p{
   margin-bottom: 4px;
-}
-
-.tableCellHeader{
-  background: #f2f3f5;
 }

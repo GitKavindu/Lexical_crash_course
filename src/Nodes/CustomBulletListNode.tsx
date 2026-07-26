@@ -57,4 +57,34 @@ export class CustomBulletListNode extends ListNode {
       className: this.__className,
     };
   }
+
+static importDOM() {
+  return {
+    ul: (node: Node) => {
+      const element = node as HTMLElement;
+
+      if (!element.classList.contains("editor-list-ul-custom") &&
+          !element.classList.contains("editor-list-ul-star")) {
+        return null;
+      }
+
+      return {
+        conversion: () => {
+          const className = element.classList.contains("editor-list-ul-star")
+            ? "editor-list-ul-star"
+            : "editor-list-ul-custom";
+
+          return {
+            node: new CustomBulletListNode(
+              "bullet",
+              1,
+              className
+            ),
+          };
+        },
+        priority: 4,
+      };
+    },
+  };
+}
 }

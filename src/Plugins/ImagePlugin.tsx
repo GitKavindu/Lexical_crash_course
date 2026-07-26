@@ -42,7 +42,7 @@ export default function ImagePlugin() {
           },
         }}
       >
-        <ImageFill />
+        <ImageFill width={24} height={24} />
       </IconButton>
       <input
         type="file"

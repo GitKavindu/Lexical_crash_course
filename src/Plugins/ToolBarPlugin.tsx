@@ -16,6 +16,7 @@ import { LinkPlugin } from "./LinkPlugin";
 import { CustomListPlugin } from "./CustomListPlugin";
 import blacksvg from "../../public/x-diamond-fill.svg"
 import redsvg from "../../public/x-diamond-fill-red.svg"
+import ImagePlugin from "./ImagePlugin";
 
 export default function ToolBarPlugin(){
     const [editor] = useLexicalComposerContext()
@@ -187,12 +188,13 @@ export default function ToolBarPlugin(){
         });
     }
 
-    return <Box display="flex">
+    return <>
         <ButtonGroup  
             variant="text"
             size="small"
             sx={{
                 color: "#444",
+                mb: 2
             }}
             className="buttonGroup"
         >
@@ -237,13 +239,28 @@ export default function ToolBarPlugin(){
                     gap:1
                 }}
             >
-                <ColorPlugin></ColorPlugin>
-                <ListPlugin blockType={blockType}></ListPlugin>
-                <TabelPlugin></TabelPlugin>
-                <LinkPlugin></LinkPlugin>
-                <CustomListPlugin className="editor-list-ul-star" icon={<img src={redsvg} alt="Table" width={20} height={20} />} label={""} />
-                <CustomListPlugin className="editor-list-ul-custom" icon={<img src={blacksvg} alt="Table" width={20} height={20} />} label={""} />
+                
+                
             </Box>
         </ButtonGroup>
-    </Box>
+        <br />
+        <ButtonGroup>
+            <Divider/>
+            <TabelPlugin></TabelPlugin>
+            <LinkPlugin></LinkPlugin>
+            <Divider/>
+            <ColorPlugin></ColorPlugin>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Divider/>
+            <ListPlugin blockType={blockType}></ListPlugin>
+            <CustomListPlugin className="editor-list-ul-star" icon={<img src={redsvg} alt="Table" width={20} height={20} />} label={""} />
+            <CustomListPlugin className="editor-list-ul-custom" icon={<img src={blacksvg} alt="Table" width={20} height={20} />} label={""} />
+            <Divider/>
+            <ImagePlugin></ImagePlugin>
+        </ButtonGroup>
+        <ButtonGroup>
+           
+        </ButtonGroup>                
+    </>
 }

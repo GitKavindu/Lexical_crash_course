@@ -18,9 +18,9 @@ import {TableNode , TableCellNode , TableRowNode} from '@lexical/table'
 import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { theme } from "./theme";
 import { ImageNode } from "./Nodes/ImageNode";
-import ImagePlugin from "./Plugins/ImagePlugin";
 import { LinkNode, AutoLinkNode } from "@lexical/link";
 import { CustomBulletListNode } from "./Nodes/CustomBulletListNode";
+import { TabIndentationPlugin } from "@lexical/react/LexicalTabIndentationPlugin";
 
 interface RichTextEditorprops{
 
@@ -57,10 +57,10 @@ export const RichTextEditor : React.FC<RichTextEditorprops> =React.memo(
                 </Box>
                 <AutoFocusPlugin/>
                 <HistoryPlugin/>
+                <TabIndentationPlugin />
                 <ListPlugin/>
                 <TablePlugin></TablePlugin>
                 <CustomOnChangePlugin value={value} onChange={onChange}/>
-                <ImagePlugin></ImagePlugin>
             </LexicalComposer>
         </Box>
     }

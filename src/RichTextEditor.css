@@ -1,12 +1,59 @@
 .contentEditable {
+  color: black;
+  text-align: left;
   position: relative;
   height: 120px;
+  width: 700px;
   font-size: 12px;
-  padding: 8px;
+  padding: 20px;
   overflow: auto;
   outline: none;
   border: 1px solid black;
   border-radius: 4px;
+}
+
+/* Default Heading Styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+}
+
+h5 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000;
 }
 
 .placeholder{
@@ -49,6 +96,18 @@
     border: 1px solid #ccc;
 }
 
+ul li{
+  list-style: circle;
+  margin-left: 20px
+}
+
+ol li.editor-list-item{
+  list-style: upper-roman ;
+  margin-left: 20px
+}
+
+/* black bullet icon */
+
 .editor-list-ul-custom {
   list-style: none;
   padding-left: 0;
@@ -57,6 +116,7 @@
 .editor-list-ul-custom li {
   position: relative;
   padding-left: 24px;
+  margin-bottom: 0.5em;
 }
 
 .editor-list-ul-custom li::before {
@@ -71,6 +131,12 @@
   background-repeat: no-repeat;
 }
 
+.editor-list-ul-custom li::marker{
+  content: "";
+  list-style: none;
+}
+
+/* red bullet icon start */
 .editor-list-ul-star {
   list-style: none;
   padding-left: 0;
@@ -79,24 +145,53 @@
 .editor-list-ul-star li {
   position: relative;
   padding-left: 24px;
+  margin-bottom: 0.5em;
 }
 
-.editor-list-ul-star li::before {
-  content: '';
+.contentEditable > .editor-list-ul-star > li ul {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 1em;
+}
+
+.contentEditable > .editor-list-ul-star > li > ul::before {
+  content: "";
   position: absolute;
-  left: 0;
-  top: 0.2em;
+  left: -19px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #83004B;
+}
+
+.editor-list-ul-star li > span {
+  position: relative;
+  left: 10px;
+  top: 0em;
+}
+
+.editor-list-ul-star li > span::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 0.1em;
   width: 16px;
   height: 16px;
-  background-image: url('../public/x-diamond-fill-red.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
+  background: url("../public/x-diamond-fill-red.svg") no-repeat center / contain;
 }
+
+.editor-list-ul-star li::marker{
+  content: "";
+  list-style: none;
+}
+
+/* red bullet icon end */
 
 .editor-link{
   text-decoration: none;
 }
 
-.a{
-  text-decoration: none;
+.toolbar-item > img{
+  width: 20px;
+  height: 20px;
 }
