@@ -11,15 +11,12 @@
   border: 1px solid black;
   border-radius: 4px;
 }
-
-/* Default Heading Styles */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.contentEditable h1,
+.contentEditable h2,
+.contentEditable h3,
+.contentEditable h4,
+.contentEditable h5,
+.contentEditable h6 {
   margin: 0 0 1rem;
   font-family: inherit;
   font-weight: 700;
@@ -27,28 +24,22 @@ h6 {
   color: #000;
   letter-spacing: -0.02em;
 }
-
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
 }
-
 h2 {
   font-size: clamp(2rem, 4vw, 2.75rem);
 }
-
 h3 {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
 }
-
 h4 {
   font-size: clamp(1.5rem, 2.5vw, 1.875rem);
 }
-
 h5 {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
 }
-
-h6 {
+.contentEditable h6 {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -150,13 +141,13 @@ ol li.editor-list-item{
 
 
 
-.editor-list-ul-star li > span ,  .editor-list-ul-star li > strong , .editor-list-ul-star li > em {
+.editor-list-ul-star li  span ,  .editor-list-ul-star li > strong , .editor-list-ul-star li > em {
   position: relative;
   left: 10px;
   top: 0em;
 }
 
-.editor-list-ul-star li > span::before , .editor-list-ul-star li > strong::before , .editor-list-ul-star li > em::before {
+.editor-list-ul-star li  span::before , .editor-list-ul-star li > strong::before , .editor-list-ul-star li > em::before {
   content: "";
   position: absolute;
   left: -35px;
@@ -180,4 +171,8 @@ ol li.editor-list-item{
 .toolbar-item > img{
   width: 20px;
   height: 20px;
+}
+
+.editor-list-item a {
+  color: inherit;
 }
