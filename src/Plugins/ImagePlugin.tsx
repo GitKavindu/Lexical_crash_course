@@ -3,7 +3,7 @@ import { ImageFill } from "react-bootstrap-icons";
 import Modal from "../Components/Modal";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $insertNodes } from "lexical";
-import { Button, IconButton, Input } from "@mui/material";
+import { Box ,Button, IconButton, Input, TextField  } from "@mui/material";
 import { $createImageNode } from "../Nodes/ImageNode";
 
 export default function ImagePlugin() {
@@ -77,13 +77,17 @@ export default function ImagePlugin() {
             </Button>
           }
           open={isOpen}
-        >
-          <Input
+        >          
+          <TextField
+            type="text"
+            size="small"
             value={url}
+            placeholder="set url"
+            sx={{ mt: 1, width: '100%' }}
             onChange={(e) => setURL(e.target.value)}
-            placeholder="Add Image URL"
           />
-          <Button
+
+          {/* <Button
             variant="contained"
             sx={{
               mt: 4,
@@ -91,7 +95,7 @@ export default function ImagePlugin() {
             onClick={() => inputRef?.current?.click()}
           >
             {file ? file.name : "Upload Image"}
-          </Button>
+          </Button> */}
         </Modal>
       )}
     </div>

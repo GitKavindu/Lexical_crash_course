@@ -14,6 +14,7 @@ import {
 } from 'lexical';
 import { $getNearestNodeOfType } from '@lexical/utils';
 import { CustomBulletListNode } from '../Nodes/CustomBulletListNode';
+import { Button} from "@mui/material";
 
 type CustomListPluginProps = {
   className: string;
@@ -79,14 +80,22 @@ export function CustomListPlugin({ className, icon, label }: CustomListPluginPro
   }, [editor, isActive, className]);
 
   return (
-    <button
-      type='button'
+    <Button
+      type="button"
       onMouseDown={(e) => e.preventDefault()}
       onClick={toggleBulletList}
       className={isActive ? 'toolbar-item active' : 'toolbar-item'}
       aria-label={label}
+      sx={{
+        backgroundColor: 'white',
+        border: 0,
+        padding: '1px 1px',
+        marginLeft: '50px',
+        minWidth: '27px !important'
+      }}
     >
       {icon}
-    </button>
+    </Button>
+
   );
 }

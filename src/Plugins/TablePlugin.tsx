@@ -1,4 +1,4 @@
-import { Button, IconButton, TextField } from "@mui/material"
+import { Button, IconButton, TextField, FormControl , InputLabel } from "@mui/material"
 import { useState } from "react";
 import { Table } from "react-bootstrap-icons"
 import Modal from "../Components/Modal"
@@ -31,34 +31,32 @@ export function TabelPlugin(){
         {isOpen && (<Modal title="Add Table" open={isOpen} onClose={() => setIsOpen(false)} 
             footer={<Button disabled={!rows || ! columns} onClick={onAddTable}>Add</Button>}
         >
-            <TextField
-                type="number"
-                size="small"
-                value={rows}
-                placeholder="Rows"
-                sx={{ mt: 8 ,width: 100,}}
-                inputProps={{
-                    min: 0,
-                    max: 7,
-                }}
-                onChange={(e) => setRows(Number(e.target.value))}
-            />
-            
-            <TextField
-                type="number"
-                size="small"
-                value={columns}
-                placeholder="Columns"
-                inputProps={{
-                    min: 0,
-                    max: 7,
-                }}
-                sx={{
-                    mt: 8,
-                    width: 100,
-                }}
-                onChange={(e) => setColumns(Number(e.target.value))}
-            />
+            <FormControl size="small" sx={{ mt: 1, width: '45%', mr: 1 }}>
+                <TextField
+                    type="number"
+                    value={rows}
+                    inputProps={{
+                        min: 0,
+                        max: 7,
+                    }}
+                    onChange={(e) => setRows(Number(e.target.value))}
+                    label="Rows"
+                />
+            </FormControl>
+
+            <FormControl size="small" sx={{ mt: 1, width: '45%' }}>
+                <TextField
+                    type="number"
+                    value={columns}
+                    inputProps={{
+                        min: 0,
+                        max: 7,
+                    }}
+                    onChange={(e) => setColumns(Number(e.target.value))}
+                    label="Columns"
+                />
+            </FormControl>
+
         </Modal>
         )}
         <IconButton

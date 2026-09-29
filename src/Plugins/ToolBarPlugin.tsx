@@ -16,6 +16,7 @@ import { LinkPlugin } from "./LinkPlugin";
 import { CustomListPlugin } from "./CustomListPlugin";
 import blacksvg from "../../public/x-diamond-fill.svg"
 import redsvg from "../../public/x-diamond-fill-red.svg"
+import bocsvg from "../../public/boc-bullet.svg"
 import ImagePlugin from "./ImagePlugin";
 
 export default function ToolBarPlugin(){
@@ -254,7 +255,7 @@ export default function ToolBarPlugin(){
         <ButtonGroup>
             <Divider/>
             <ListPlugin blockType={blockType}></ListPlugin>
-            <CustomListPlugin className="editor-list-ul-star" icon={<img src={redsvg} alt="Table" width={20} height={20} />} label={""} />
+            <CustomListPlugin className="editor-list-ul-star" icon={<img src={bocsvg} alt="Table" width={20} height={20} />} label={""} />
             <CustomListPlugin className="editor-list-ul-custom" icon={<img src={blacksvg} alt="Table" width={20} height={20} />} label={""} />
             <Divider/>
             <ImagePlugin></ImagePlugin>

@@ -102,6 +102,7 @@ ol li.editor-list-item{
 .editor-list-ul-custom {
   list-style: none;
   padding-left: 0;
+  margin-left: 16px;
 }
 
 .editor-list-ul-custom li {
@@ -154,7 +155,7 @@ ol li.editor-list-item{
   top: 0.1em;
   width: 16px;
   height: 16px;
-  background: url("https://www.boc.lk/assets/images/misc/boc-bullet.svg") no-repeat center / contain;
+  background: url("../public/boc-bullet.svg") no-repeat center / contain;
 }
 
 .editor-list-ul-star li::marker{
